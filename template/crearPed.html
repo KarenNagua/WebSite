@@ -1,0 +1,12 @@
+{%extends "master.html"%}
+{%block contenido%}
+<div class="well">
+	<form method="POST" action="" class="form-horizontal">{% csrf_token %}
+	<div class="form-group">
+		{{pe.as_p}}
+		<input type="submit" value="Aceptar" class="btn btn-success"></input>
+	</div>
+	</form>
+	<input type="submit" value="Salir" class="btn btn-success" onClick="location.href = '../'"></input>
+</div>
+{%endblock%}

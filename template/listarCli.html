@@ -1,0 +1,33 @@
+{%extends "master.html"%}
+{%block contenido%}
+
+<h3 align="center">Lista de Clientes</h3>
+
+<div class="row justify-content-center align-items-center">
+	<div class="col-md-8 col-md-offset-2">
+		<a class="btn btn-success" href="{% url 'CCliente' %}"><i class="icon ion-ios-person-add"></i></a>
+		<table class="table table-striped">
+			<tr>
+			<td>Nombre</td>
+			<td>Apellido</td>
+			<td>Cedula</td>
+			<td>Direccion</td>
+			<td>Telefono</td>
+			<td>Correo</td>
+			<td>Opciones</td>
+		</tr>
+		{%for c in object_list%}
+		<tr>
+			<td>{{c.Nombre}}</td>
+			<td>{{c.Apellido}}</td>
+			<td>{{c.Cedula}}</td>
+			<td>{{c.Direccion}}</td>
+			<td>{{c.Telefono}}</td>
+			<td>{{c.Correo}}</td>
+			<td><a href="eliminar?id={{c.id}}"><span class="glyphicon glyphicon-remove" ari-hidden="true"></span></a> | <a href="modificar?id={{c.id}}"><span class="glyphicon glyphicon-pencil" ari-hidden="true"></span></a></span></a></td>
+		</tr>
+				{%endfor%}
+		</table>
+	</div>
+</div>
+{%endblock%}

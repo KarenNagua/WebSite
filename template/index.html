@@ -1,0 +1,39 @@
+{%extends "master.html"%}
+{%block contenido%}
+<h3 align="center">Lista de Clientes</h3> </span>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+	
+		<button onClick="location.href = 'crear'" type="button" class="btn btn-success" aria-label="Left Align">
+			<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+		</button>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<table class="table table-striped">
+			<tr>
+			<td>Nombre</td>
+			<td>Apellido</td>
+			<td>Cedula</td>
+			<td>Direccion</td>
+			<td>Telefono</td>
+			<td>Correo</td>
+			<td>Opciones</td>
+		</tr>
+		{%for c in clientes%}
+		<tr>
+			<td>{{c.Nombre}}</td>
+			<td>{{c.Apellido}}</td>
+			<td>{{c.Cedula}}</td>
+			<td>{{c.Direccion}}</td>
+			<td>{{c.Telefono}}</td>
+			<td>{{c.Correo}}</td>
+			<td><a href="eliminar?Cedula={{c.Cedula}}"><span class="glyphicon glyphicon-remove" ari-hidden="true"></span></a> | <a href="modificar?Cedula={{c.Cedula}}"><span class="glyphicon glyphicon-pencil" ari-hidden="true"></span></a> | <a href="imprimir?Cedula={{c.Cedula}}"><span class="glyphicon glyphicon-search" ari-hidden="true"></span></a></td>
+		</tr>
+				{%endfor%}
+		</table>
+	</div>
+</div>
+{%endblock%}

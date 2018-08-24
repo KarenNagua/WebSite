@@ -1,0 +1,29 @@
+{%extends "master.html"%}
+{%load staticfiles%}
+{%block contenido%}
+<h3 align="center">Lista de Productos</h3> </span>
+
+<div class="row justify-content-center align-items-center">
+	<div class="col-md-8 col-md-offset-2">
+		<a class="btn btn-success" href="{% url 'CProducto' %}"><i class="icon ion-ios-cart"></i></a>
+		<table class="table table-striped">
+			<tr>
+			<td>Nombre</td>
+			<td>Precio</td>
+			<td>Descripcion</td>
+			<td>Imagen</td>
+			<td>Opciones</td>
+		</tr>
+		{%for c in productos%}
+		<tr>
+			<td>{{c.Nombre}}</td>
+			<td>{{c.Precio}}</td>
+			<td>{{c.Descripcion}}</td>
+			<td><img src="{{c.Imagen.url}}"></td>
+			<td><a href="eliminarPro?id={{c.id}}"><span class="glyphicon glyphicon-remove" ari-hidden="true"></span></a> | <a href="modificarPro?id={{c.id}}"><span class="glyphicon glyphicon-pencil" ari-hidden="true"></span></a></span></a></td>
+		</tr>
+				{%endfor%}
+		</table>
+	</div>
+</div>
+{%endblock%}
