@@ -1,0 +1,28 @@
+{%extends "master.html"%}
+{%block contenido%}
+<div class="row justify-content-center align-items-center">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="page-header"><h2>Login</h2></div>
+            {% if mensaje %}
+                <div class="alert alert-danger">
+                    {{ mensaje }}
+                </div>
+            {% endif %}
+
+            <form method="post" action="">{% csrf_token %}
+                <div class="form-group">
+                    <label class="control-label" for="username">Nombre de usuario</label>
+                    <input type="text" id="username" name="username" class="form-control" value="{{ username }}">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password" id="password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+            </form>
+            <br>
+            <button type="submit" class="btn btn-primary btn-block" onClick="location.href = 'registrar'">Registrarse</button>
+        </div>
+    </div>
+{%endblock%}

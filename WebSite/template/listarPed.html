@@ -1,0 +1,28 @@
+{%extends "master.html"%}
+{%block contenido%}
+<h3 align="center">Lista de Pedidos</h3>
+
+<div class="row justify-content-center align-items-center">
+	<div class="col-md-8 col-md-offset-2">
+		<a class="btn btn-success" href="{% url 'CPedido' %}"><i class="icon ion-ios-paper"></i></a>
+		<table class="table table-striped">
+			<tr>
+			<td>Id Pedido</td>
+			<td>Cliente</td>
+			<td>Cantidad</td>
+			<td>Precio Total</td>
+			<td>Opciones</td>
+		</tr>
+		{%for c in object_list%}
+		<tr>
+			<td>{{c.idPed}}</td>
+			<td>{{c.Cliente}}</td>
+			<td>{{c.Cantidad}}</td>
+			<td>{{c.PrecioTotal}}</td>
+			<td><a href="{% url 'EliminarPed' c.id %}"><i class="icon ion-ios-backspace"></i></a> | <a href="{% url 'ActualizarPed' c.id %}"><i class="icon ion-ios-create"></i></a></a></td>
+		</tr>
+				{%endfor%}
+		</table>
+	</div>
+</div>
+{%endblock%}

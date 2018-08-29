@@ -1,0 +1,31 @@
+{%extends "master.html"%}
+{% load static %}
+
+{%block contenido%}
+
+<h3 align="center">Lista de Restaurantes</h3> </span>
+
+<div class="row justify-content-center align-items-center">
+	<div class="col-md-8 col-md-offset-2">
+		<a class="btn btn-success" href="{% url 'CRestaurante' %}"><i class="icon ion-ios-clipboard"></i></a>
+		<table class="table table-striped">
+			<tr>
+			<td>Nombre</td>
+			<td>Gerente</td>
+			<td>Dirección</td>
+			<td>Telefono</td>
+			<td>Opciones</td>
+		</tr>
+		{%for c in object_list %}
+		<tr>
+			<td>{{c.Nombre}}</td>
+			<td>{{c.Gerente}}</td>
+			<td>{{c.Direccion}}</td>
+			<td>{{c.Telefono}}</td>
+			<td><a href="{% url 'EliminarRes' c.id %}"><i class="icon ion-ios-backspace"></i></a> | <a href="{% url 'ActualizarRes' c.id %}"><i class="icon ion-ios-create"></i></a></a></td>
+		</tr>
+				{%endfor%}
+		</table>
+	</div>
+</div>
+{%endblock%}
